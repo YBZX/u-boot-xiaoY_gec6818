@@ -94,7 +94,7 @@ const char *get_board_name(void)
 		case 3:
 			return "Smart6818";
 		case 4:
-			return "NanoPC-T3T";
+			return "xiaoY_NanoPC-T3T";
 		case 5:
 			return "NanoPi Fire 3";
 		case 7:
