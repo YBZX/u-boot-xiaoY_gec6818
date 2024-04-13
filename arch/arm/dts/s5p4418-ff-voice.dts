@@ -1,0 +1,57 @@
+/*
+ * (C) Copyright 2016 Nexell
+ * Deokjin, Lee <truevirtue@nexell.co.kr>
+ *
+ * SPDX-License-Identifier:      GPL-2.0+
+ */
+
+/dts-v1/;
+#include "s5p4418.dtsi"
+#include "s5p4418-ff-voice-nxe2000.dtsi"
+
+/ {
+	model = "farfield voice board based on s5p4418";
+	cpu-model = "S5p4418";
+
+	compatible = "nexell,s5p4418";
+
+	mmc0:mmc@c0062000 {
+		nexell,drive_dly = <0x0>;
+		nexell,drive_shift = <0x03>;
+		nexell,sample_dly = <0x00>;
+		nexell,sample_shift = <0x02>;
+		frequency = <50000000>;
+		status = "okay";
+	};
+
+	mmc1:mmc@c0068000 {
+		nexell,drive_dly = <0x0>;
+		nexell,drive_shift = <0x03>;
+		nexell,sample_dly = <0x00>;
+		nexell,sample_shift = <0x02>;
+		frequency = <50000000>;
+		status ="okay";
+	};
+
+	ehci:usbhost@c0030000 {
+		status = "okay";
+	};
+
+	dwc2otg@c0040000 {
+		status = "okay";
+	};
+
+	nxe2000_gpio:i2c_gpio@0 {
+		compatible = "i2c-gpio";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		gpios = <&gpio_e 8 1>,	/* SDA */
+		      <&gpio_e 9 1>;	/* SCL */
+
+		i2c-gpio,delay-us = <3>;
+		nxe2000_gpio@32 {
+			compatible = "nexell,nxe2000";
+			reg = <0x32>;
+		};
+	};
+};

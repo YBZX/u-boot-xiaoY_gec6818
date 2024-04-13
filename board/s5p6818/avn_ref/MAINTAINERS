@@ -1,0 +1,6 @@
+AVN BOARD
+M:  HyejungKown <cjscld15@nexell.co.kr>
+S:  Maintained
+F:  board/s5p6818/avn_ref/
+F:  include/configs/s5p6818_avn_ref.h
+F:  configs/s5p6818_avn_ref_defconfig

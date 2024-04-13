@@ -1,0 +1,6 @@
+S5P4418 DAUDIO_COVI BOARD
+M:  Han Yiboem <yibhan@cafeel.co.kr>
+S:  Maintained
+F:  board/s5p4418/daudio_covi/
+F:  include/configs/s5p4418_daudio_covi.h
+F:  configs/s5p4418_daudio_covi_defconfig

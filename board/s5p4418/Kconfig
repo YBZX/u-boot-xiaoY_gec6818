@@ -1,0 +1,74 @@
+choice
+	prompt "Board select"
+
+config TARGET_S5P4418_DRONE
+	bool "S5P4418_DRONE"
+	help
+	  Support for s5p4418 drone platform.
+
+config TARGET_ARTIK530_RAPTOR
+        bool "ARTIK530_RAPTOR"
+	help
+	  Support for artik530_raptor platform.
+
+config TARGET_S5P4418_AVN_REF
+	bool "S5P4418_AVN_REF"
+	help
+	  Support for s5p4418 avn_ref platform.
+
+config TARGET_NANOPI2
+	bool "NANOPI2"
+	help
+	  Support for FriendlyElec boards based on S5P4418.
+
+config TARGET_S5P4418_NAVI_REF
+	bool "S5P4418_NAVI_REF"
+	help
+	  Support for s5p4418 navi_ref platform.
+
+config TARGET_S5P4418_DAUDIO_REF
+	bool "S5P4418_DAUDIO_REF"
+	help
+	  Support for s5p4418 daudio_ref platform.
+
+config TARGET_S5P4418_SMART_VOICE
+	bool "S5P4418_SMART_VOICE"
+	help
+	  Support for s5p4418 smart_voice platform.
+
+config TARGET_S5P4418_FF_VOICE
+	bool "S5P4418_FF_VOICE"
+	help
+	  Support for s5p4418 farfield_voice platform
+
+config TARGET_S5P4418_ZH_DRAGON
+	bool "S5P4418_ZH_DRAGON"
+	help
+	  Support for s5p4418 zonghong dragon platform.
+
+config TARGET_S5P4418_DAUDIO_COVI
+	bool "S5P4418_DAUDIO_COVI"
+	help
+	  Support for s5p4418 daudio_covi platform.
+endchoice
+
+config SYS_VENDOR
+	default "s5p4418"
+
+config SYS_CONFIG_NAME
+	string "Board header file"
+	help
+	  This option should contain the base name of board header file.
+	  The header file include/configs/<CONFIG_SYS_CONFIG_NAME>.h
+	  should be included from include/config.h.
+
+source "board/s5p4418/drone/Kconfig"
+source "board/s5p4418/artik530_raptor/Kconfig"
+source "board/s5p4418/avn_ref/Kconfig"
+source "board/s5p4418/navi_ref/Kconfig"
+source "board/s5p4418/daudio_ref/Kconfig"
+source "board/s5p4418/smart_voice/Kconfig"
+source "board/s5p4418/ff_voice/Kconfig"
+source "board/s5p4418/zh_dragon/Kconfig"
+source "board/s5p4418/daudio_covi/Kconfig"
+source "board/s5p4418/nanopi2/Kconfig"

@@ -1,0 +1,6 @@
+if TARGET_S5P4418_ZH_DRAGON
+
+config SYS_BOARD
+	default "zh_dragon"
+
+endif

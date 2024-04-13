@@ -1,0 +1,167 @@
+/*
+ * (C) Copyright 2016 Nexell
+ * Youngbok, Park <park@nexell.co.kr>
+ *
+ * SPDX-License-Identifier:      GPL-2.0+
+ */
+
+/dts-v1/;
+#include "s5p4418.dtsi"
+
+/ {
+	model = "Nexell navi_ref board based on s5p4418";
+	cpu-model = "S5p4418";
+
+	compatible = "nexell,s5p4418";
+
+	mmc0:mmc@c0062000 {
+		nexell,drive_dly = <0x0>;
+		nexell,drive_shift = <0x03>;
+		nexell,sample_dly = <0x00>;
+		nexell,sample_shift = <0x02>;
+		frequency = <50000000>;
+		status = "okay";
+	};
+
+	ehci:usbhost@c0030000 {
+		status = "okay";
+	};
+
+	dwc2otg@c0040000 {
+		status = "okay";
+	};
+
+	nxe2000_gpio:i2c_gpio@0 {
+		compatible = "i2c-gpio";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		gpios = <&gpio_e 8 1>,	/* SDA */
+		      <&gpio_e 9 1>;	/* SCL */
+
+		i2c-gpio,delay-us = <3>;
+		nxe2000_gpio@32 {
+			compatible = "nexell,nxe2000";
+			reg = <0x32>;
+		};
+	};
+
+	voltage-regulators {
+		dcdc0: BUCK0 {
+			regulator-name = "dcdc1";
+			regulator-min-microvolt = <600000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-always-on = <1>;
+			regulator-boot-on = <1>;
+		};
+
+		dcdc1: BUCK1 {
+			regulator-name = "dcdc2";
+			regulator-min-microvolt = <600000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-always-on = <1>;
+			regulator-boot-on = <1>;
+		};
+
+		dcdc2: BUCK2 {
+			regulator-name = "dcdc3";
+			regulator-min-microvolt = <600000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-always-on = <1>;
+			regulator-boot-on = <1>;
+		};
+
+		dcdc3: BUCK3 {
+			regulator-name = "dcdc4";
+			regulator-min-microvolt = <600000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-always-on = <1>;
+			regulator-boot-on = <1>;
+		};
+
+		dcdc4: BUCK4 {
+			regulator-name = "dcdc5";
+			regulator-min-microvolt = <600000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-always-on = <1>;
+			regulator-boot-on = <1>;
+		};
+
+		ldo0: LDO0 {
+			regulator-min-microvolt = <900000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-name = "ldo1";
+		};
+
+		ldo1: LDO1 {
+			regulator-min-microvolt = <900000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-name = "ldo2";
+		};
+
+		ldo2: LDO2 {
+			regulator-min-microvolt = <900000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-name = "ldo3";
+		};
+
+		ldo3: LDO3 {
+			regulator-min-microvolt = <900000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-name = "ldo4";
+		};
+
+		ldo4: LDO4 {
+			regulator-min-microvolt = <600000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-name = "ldo5";
+		};
+
+		ldo5: LDO5 {
+			regulator-min-microvolt = <600000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-name = "ldo6";
+			regulator-always-on = <1>;
+			regulator-boot-on = <1>;
+		};
+
+		ldo6: LDO6 {
+			regulator-min-microvolt = <900000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-name = "ldo7";
+		};
+
+		ldo7: LDO7 {
+			regulator-min-microvolt = <900000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-name = "ldo8";
+		};
+
+		ldo8: LDO8 {
+			regulator-min-microvolt = <900000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-name = "ldo9";
+		};
+
+		ldo9: LDO9 {
+			regulator-min-microvolt = <900000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-name = "ldo10";
+		};
+
+		ldortc1: LDO10 {
+			regulator-min-microvolt = <1700000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-name = "ldortc1";
+			regulator-always-on = <1>;
+			regulator-boot-on = <1>;
+		};
+
+		ldortc2: LDO11 {
+			regulator-min-microvolt = <1700000>;
+			regulator-max-microvolt = <3500000>;
+			regulator-name = "ldortc2";
+			regulator-always-on = <1>;
+			regulator-boot-on = <1>;
+		};
+	}; /* voltage-regulators */
+};

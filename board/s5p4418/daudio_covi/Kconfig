@@ -1,0 +1,6 @@
+if TARGET_S5P4418_DAUDIO_COVI
+
+config SYS_BOARD
+	default "daudio_covi"
+
+endif

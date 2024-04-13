@@ -1,0 +1,18 @@
+if TARGET_NANOPI3
+
+config SYS_BOARD
+	default "nanopi3"
+
+config SYS_VENDOR
+	default "s5p6818"
+
+config SYS_CONFIG_NAME
+	default "s5p6818_nanopi3"
+
+config S5P6818_FEATURES
+	bool
+	default y
+	select ARM64
+
+endif
+

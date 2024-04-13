@@ -1,0 +1,6 @@
+S5P4418 ZH_DRAGON BOARD
+M:  youngbok park <ybpark@nexell.co.kr>
+S:  Maintained
+F:  board/s5p4418/zh_dragon/
+F:  include/configs/s5p4418_zh_dragon.h
+F:  configs/s5p4418_zh_dragon_defconfig

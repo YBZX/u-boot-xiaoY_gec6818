@@ -1,0 +1,6 @@
+KICK ST BOARD
+M:  Youngbok Park <ybpark@nexell.co.kr>
+S:  Maintained
+F:  board/s5p6818/kick_st/
+F:  include/configs/s5p6818_kick_st.h
+F:  configs/s5p6818_kick_st_defconfig

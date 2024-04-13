@@ -1,0 +1,119 @@
+/*
+ * (C) Copyright 2016 Nexell
+ * Youngbok, Park <park@nexell.co.kr>
+ *
+ * SPDX-License-Identifier:      GPL-2.0+
+ */
+
+#include <dt-bindings/reset/nexell,nxp5540-reset.h>
+#include <dt-bindings/pinctrl/nexell,pinctrl.h>
+
+#include "skeleton.dtsi"
+/ {
+	#include "nxp5540-pinctrl.dtsi"
+
+	nxp5540_rst: reset {
+		#reset-cells = <2>;
+		compatible = "nexell,nxp5540-reset";
+		reg = <PHYS_BASE_SYS_RSTCON 0x800
+		       PHYS_BASE_TBUS_RSTCON 0x800
+		       PHYS_BASE_LBUS_RSTCON 0x800
+		       PHYS_BASE_BBUS_RSTCON 0x800
+		       PHYS_BASE_CODA_RSTCON 0x800
+		       PHYS_BASE_DISP_RSTCON 0x800
+		       PHYS_BASE_USB_RSTCON 0x800
+		       PHYS_BASE_HDMI_RSTCON 0x800
+		       PHYS_BASE_WAVE_RSTCON 0x800
+		       PHYS_BASE_DREX_RSTCON 0x800
+		       PHYS_BASE_WAVE420_RSTCON 0x800
+		       PHYS_BASE_CPU_RSTCON 0x800
+		       PHYS_BASE_PERICLK_RSTCON 0x800>;
+	};
+
+	gpio_a:gpio@c001a000 {
+		compatible = "nexell,nexell-gpio";
+		reg = <0x21050000 0x00000010>;
+		altr,gpio-bank-width = <32>;
+		gpio-bank-name = "gpio_a";
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
+
+	gpio_b:gpio@21051000 {
+		compatible = "nexell,nexell-gpio";
+		reg = <0x21051000 0x00000010>;
+		altr,gpio-bank-width = <32>;
+		gpio-bank-name = "gpio_b";
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
+
+	gpio_c:gpio@21052000 {
+		compatible = "nexell,nexell-gpio";
+		reg = <0x21052000 0x00000010>;
+		nexell,gpio-bank-width = <32>;
+		gpio-bank-name = "gpio_c";
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
+
+	gpio_d:gpio@21053000 {
+		compatible = "nexell,nexell-gpio";
+		reg = <0x21053000 0x00000010>;
+		nexell,gpio-bank-width = <32>;
+		gpio-bank-name = "gpio_d";
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
+
+	gpio_e:gpio@21054000 {
+		compatible = "nexell,nexell-gpio";
+		reg = <0x21054000 0x00000010>;
+		nexell,gpio-bank-width = <32>;
+		gpio-bank-name = "gpio_e";
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
+
+	gpio_f:gpio@21055000 {
+		compatible = "nexell,nexell-gpio";
+		reg = <0x21055000 0x00000010>;
+		nexell,gpio-bank-width = <32>;
+		gpio-bank-name = "gpio_f";
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
+
+	gpio_g:gpio@21056000 {
+		compatible = "nexell,nexell-gpio";
+		reg = <0x21056000 0x00000010>;
+		nexell,gpio-bank-width = <32>;
+		gpio-bank-name = "gpio_g";
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
+
+	gpio_h:gpio@21057000 {
+		compatible = "nexell,nexell-gpio";
+		reg = <0x21057000 0x00000010>;
+		nexell,gpio-bank-width = <2>;
+		gpio-bank-name = "gpio_h";
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
+
+	gpio_alv:gpio@20010800 {
+		compatible = "nexell,nexell-gpio";
+		reg = <0x20010800 0x00000010>;
+		nexell,gpio-bank-width = <15>;
+		gpio-bank-name = "gpio_alv";
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
+
+	pinctrl {
+		compatible = "nexell,nxp5540-pinctrl";
+		reg = <0x20010000 0xf000>;
+		u-boot,dm-pre-reloc;
+	};
+};

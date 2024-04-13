@@ -1,0 +1,19 @@
+if ARCH_NXP5540
+
+config NEXELL_COMMON
+	bool "Nexell common options"
+
+config NEXELL_ARMV8_COMMON
+	bool "Nexell 64-bit common options"
+	select ARM64
+	select ARMV8_MULTIENTRY
+	select NEXELL_COMMON
+
+menu "Board for NXP5540"
+source "board/nxp5540/Kconfig"
+endmenu
+
+config SYS_SOC
+	default "nxp5540"
+
+endif

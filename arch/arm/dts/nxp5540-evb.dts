@@ -1,0 +1,16 @@
+/*
+ * (C) Copyright 2016 Nexell
+ * Youngbok, Park <park@nexell.co.kr>
+ *
+ * SPDX-License-Identifier:      GPL-2.0+
+ */
+
+/dts-v1/;
+#include "nxp5540.dtsi"
+
+/ {
+	model = "Nexell svt board based on nxp5540";
+	cpu-model = "nxp5540";
+
+	compatible = "nexell,nxp5540";
+};

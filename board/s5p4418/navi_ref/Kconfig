@@ -1,0 +1,6 @@
+if TARGET_S5P4418_NAVI_REF
+
+config SYS_BOARD
+	default "navi_ref"
+
+endif

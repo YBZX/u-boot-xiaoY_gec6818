@@ -1,0 +1,7 @@
+if TARGET_S5P4418_SMART_VOICE
+
+config SYS_BOARD
+	default "smart_voice"
+
+endif
+

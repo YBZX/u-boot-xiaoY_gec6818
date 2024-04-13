@@ -1,0 +1,6 @@
+NXP5540 SVT BOARD
+M:  hsjung <hsjung@nexell.co.kr>
+S:  Maintained
+F:  board/nxp5540/svt/
+F:  include/configs/nxp5540_svt.h
+F:  configs/nxp5540_svt_defconfig

@@ -1,0 +1,7 @@
+if TARGET_ARTIK710_RAPTOR
+
+config SYS_BOARD
+	default "artik710_raptor"
+
+endif
+

@@ -1,0 +1,7 @@
+if TARGET_NXP5540_EVB
+
+config SYS_BOARD
+	default "evb"
+
+endif
+

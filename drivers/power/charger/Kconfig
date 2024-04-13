@@ -1,0 +1,24 @@
+config DM_CHARGER
+	bool "Enable Driver Model for CHARGER drivers (UCLASS_CHARGER)"
+	depends on DM
+	---help---
+	This config enables the driver model charger support.
+	UCLASS_CHARGER - designed to provide a common API for basic regulator's
+	functions, like get/set Voltage or Current value, enable state, etc...
+	Note:
+	When enabling this, please read the description, found in the files:
+	- 'include/power/pmic.h'
+	- 'include/power/charger.h'
+	- 'drivers/power/pmic/pmic-uclass.c'
+	- 'drivers/power/pmic/charger-uclass.c'
+	It's important to call the device_bind() with the proper node offset,
+	when binding the charger devices. The pmic_bind_childs() can be used
+	for this purpose if PMIC I/O driver is implemented or dm_scan_fdt_node()
+	otherwise. Detailed information can be found in the header file.
+
+config DM_CHARGER_NXE2000
+	bool "Enable Driver Model for CHARGER NXE2000"
+	depends on DM_CHARGER && DM_PMIC_NXE2000
+	---help---
+	This config enables implementation of driver-model charger uclass
+	features for CHARGER NXE2000.

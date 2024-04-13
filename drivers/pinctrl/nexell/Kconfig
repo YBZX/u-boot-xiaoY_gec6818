@@ -1,0 +1,18 @@
+if ARCH_NEXELL || ARCH_NXP5540
+
+config PINCTRL_NEXELL
+	bool "Nexell pinctrl driver"
+
+config PINCTRL_NEXELL_S5PXX18
+	bool "Nexell s5pxx18 SoC pinctrl driver"
+	default y if ARCH_S5P4418 || ARCH_S5P6818
+	depends on ARCH_NEXELL && PINCTRL_FULL
+	select PINCTRL_NEXELL
+
+config PINCTRL_NEXELL_NXP5540
+	bool "Nexell nxp5540 SoC pinctrl driver"
+	default y
+	depends on PINCTRL_FULL
+	select PINCTRL_NEXELL
+
+endif

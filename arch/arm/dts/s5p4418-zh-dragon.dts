@@ -1,0 +1,122 @@
+/*
+ * (C) Copyright 2016 Nexell
+ * Youngbok, Park <park@nexell.co.kr>
+ *
+ * SPDX-License-Identifier:      GPL-2.0+
+ */
+
+/dts-v1/;
+#include "s5p4418.dtsi"
+#include "s5p4418-zh-dragon-nxe2000.dtsi"
+
+/ {
+	model = "zonghong dragon board based on s5p4418";
+	cpu-model = "S5p4418";
+
+	compatible = "nexell,s5p4418";
+
+	pinctrl@C0010000 {
+		/delete-node/ gmac_txd;
+		/delete-node/ gmac_rxd;
+		/delete-node/ gmac_txen;
+		/delete-node/ gmac_mdc;
+		/delete-node/ gmac_mdio;
+		/delete-node/ gmac_rxclk;
+		/delete-node/ gmac_txclk;
+	};
+
+	mmc0:mmc@c0062000 {
+		nexell,drive_dly = <0x0>;
+		nexell,drive_shift = <0x03>;
+		nexell,sample_dly = <0x00>;
+		nexell,sample_shift = <0x02>;
+		frequency = <50000000>;
+		status = "okay";
+	};
+
+	mmc1:mmc@c0068000 {
+		nexell,drive_dly = <0x0>;
+		nexell,drive_shift = <0x03>;
+		nexell,sample_dly = <0x00>;
+		nexell,sample_shift = <0x02>;
+		frequency = <50000000>;
+		status ="okay";
+	};
+
+	ehci:usbhost@c0030000 {
+		status = "okay";
+	};
+
+	dwc2otg@c0040000 {
+		status = "okay";
+	};
+
+	nxe2000_gpio:i2c_gpio@0 {
+		compatible = "i2c-gpio";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		gpios = <&gpio_e 8 1>,	/* SDA */
+		      <&gpio_e 9 1>;	/* SCL */
+
+		i2c-gpio,delay-us = <3>;
+		nxe2000_gpio@32 {
+			compatible = "nexell,nxe2000";
+			reg = <0x32>;
+		};
+	};
+
+	dp0:dp@c0102800 {
+	        status = "okay";
+	        module = <0>;
+	        lcd-type = "lvds";
+
+		dp-device {
+			format = <0>;
+		};
+
+		dp-sync {
+			h_active_len = <1024>;
+			h_front_porch = <160>;
+			h_back_porch = <160>;
+			h_sync_width = <2>;
+			v_active_len = <600>;
+			v_front_porch = <15>;
+			v_back_porch = <23>;
+			v_sync_width = <14>;
+		};
+
+		dp-ctrl {
+			clk_src_lv0 = <0>;
+			clk_div_lv0 = <16>;
+			clk_src_lv1 = <7>;
+			clk_div_lv1 = <1>;
+			out_format = <3>;
+		};
+
+		dp-planes {
+			layer_top {
+				screen_width = <1024>;
+				screen_height = <600>;
+				back_color = <0x0>;
+			};
+
+			layer_1 {
+				fb_base = <0x7E000000>;
+				width = <1024>;
+				height = <600>;
+				format = <0x06530000>;
+				pixel_byte = <4>;
+			};
+		};
+	};
+
+	board_rev:rev@0 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		gpios = < &gpio_a 16 0 >,
+		      < &gpio_a 17 0 >,
+		      < &gpio_a 20 0 >,
+		      < &gpio_a 21 0 >;
+		compatible = "nexell,board_rev";
+	};
+};

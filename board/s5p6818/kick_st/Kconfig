@@ -1,0 +1,18 @@
+if TARGET_KICK_ST
+
+config SYS_BOARD
+	default "kick_st"
+
+config SYS_VENDOR
+	default "s5p6818"
+
+config SYS_CONFIG_NAME
+	default "s5p6818_kick_st"
+
+config S5P6818_FEATURES
+	bool
+	default y
+	select ARM64
+
+endif
+

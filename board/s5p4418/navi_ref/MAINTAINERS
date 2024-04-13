@@ -1,0 +1,6 @@
+S5P4418 NAVI_REF BOARD
+M:  youngbok park <ybpark@nexell.co.kr>
+S:  Maintained
+F:  board/s5p4418/navi_ref/
+F:  include/configs/s5p4418_navi_ref.h
+F:  configs/s5p4418_navi_ref_defconfig

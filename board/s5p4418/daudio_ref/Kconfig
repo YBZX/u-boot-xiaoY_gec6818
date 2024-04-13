@@ -1,0 +1,6 @@
+if TARGET_S5P4418_DAUDIO_REF
+
+config SYS_BOARD
+	default "daudio_ref"
+
+endif

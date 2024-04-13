@@ -1,0 +1,6 @@
+S5P4418 SMART_VOICE BOARD
+M:  ybpark <ybpark@nexell.co.kr>
+S:  Maintained
+F:  board/s5p4418/smart_voice/
+F:  include/configs/s5p4418_smart_voice.h
+F:  configs/s5p4418_smart_voice_defconfig
