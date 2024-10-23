@@ -30,6 +30,8 @@
 
 DECLARE_GLOBAL_DATA_PTR;
 
+static int nexell_gmac_initialize(void);
+
 static int dw_mdio_read(struct mii_dev *bus, int addr, int devad, int reg)
 {
 	struct eth_mac_regs *mac_p = bus->priv;
@@ -478,9 +480,12 @@ int designware_initialize(ulong base_addr, u32 interface)
 	struct eth_device *dev;
 	struct dw_eth_dev *priv;
 
+	printf("%s-%d\n",__FILE__,__LINE__);
 	dev = (struct eth_device *) malloc(sizeof(struct eth_device));
 	if (!dev)
 		return -ENOMEM;
+
+//	nexell_gmac_initialize();
 
 	/*
 	 * Since the priv structure contains the descriptors which need a strict
@@ -533,6 +538,8 @@ static int nexell_gmac_initialize(void)
 {
 	struct clk *clk;
 	unsigned int rate;
+
+	printf("%s-%d\n",__FILE__,__LINE__);
 
 	/* Clock control */
 	clk = clk_get("nx-gmac.0");

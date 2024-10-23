@@ -1,0 +1,6 @@
+NANOPI3 BOARD
+M:  HyejungKown <cjscld15@nexell.co.kr>
+S:  Maintained
+F:  board/s5p6818/nanopi3/
+F:  include/configs/s5p6818_nanopi3.h
+F:  configs/s5p6818_nanopi3_defconfig

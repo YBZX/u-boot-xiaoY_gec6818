@@ -446,6 +446,7 @@ static LIST_HEAD(phy_drivers);
 
 int phy_init(void)
 {
+	printf("%s-%d\n",__FILE__,__LINE__);
 #ifdef CONFIG_PHY_AQUANTIA
 	phy_aquantia_init();
 #endif

@@ -312,6 +312,7 @@ static void bd_lcd_init(void)
 
 	ret = bd_setup_lcd_by_id(id);
 	if (id <= 0 || ret != id) {
+		printf("%s-%d\n",__FILE__,__LINE__);
 		printf("Panel: N/A (%d)\n", id);
 		bd_setup_lcd_by_name("HDMI720P60");
 

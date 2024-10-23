@@ -127,6 +127,7 @@ void board_init(void)
 #endif
 
 #if defined(CONFIG_CMD_NET)
+	printf("%s-%d\n",__FILE__,__LINE__);
 	puts("NET:   ");
 	eth_initialize();
 #endif

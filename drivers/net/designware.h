@@ -8,6 +8,22 @@
 #ifndef _DW_ETH_H
 #define _DW_ETH_H
 
+
+#if defined(CONFIG_ETH_DESIGNWARE)      
+        #if defined(CONFIG_PHY_REALTEK)
+        #define CONFIG_ETHPRIME     "RTL8211"
+        #define CONFIG_PHY_ADDR 4  
+        #endif
+        #define CONFIG_PHY_RESET_DELAY          10000       /* in usec */
+        #define CONFIG_DW_ALTDESCRIPTOR
+        #define CONFIG_DW_SEARCH_PHY
+        #define CONFIG_DW_AUTONEG
+        #define CONFIG_PHY_GIGE /* Include GbE speed/duplex detection */
+        #define CONFIG_PHY_DYNAMIC_ANEG         1
+        #define CONFIG_MII
+        #define CONFIG_CMD_MII
+#endif
+
 #define CONFIG_TX_DESCR_NUM	16
 #define CONFIG_RX_DESCR_NUM	16
 #define CONFIG_ETH_BUFSIZE	2048

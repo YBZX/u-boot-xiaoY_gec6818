@@ -87,6 +87,7 @@ int board_eth_init(bd_t *bis) __attribute__((weak, alias("__def_eth_init")));
 
 static void eth_common_init(void)
 {
+	printf("%s-%d\n",__FILE__,__LINE__);
 	bootstage_mark(BOOTSTAGE_ID_NET_ETH_START);
 #if defined(CONFIG_MII) || defined(CONFIG_CMD_MII) || defined(CONFIG_PHYLIB)
 	miiphy_init();
@@ -481,6 +482,8 @@ int eth_rx(void)
 
 int eth_initialize(void)
 {
+	printf("%s-%d\n",__FILE__,__LINE__);
+	printf("%s-%d\n",__FILE__,__LINE__);
 	int num_devices = 0;
 	struct udevice *dev;
 

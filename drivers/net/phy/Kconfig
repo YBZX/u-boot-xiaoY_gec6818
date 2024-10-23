@@ -1,0 +1,4 @@
+
+config PHY_REALTEK
+ 
+    bool "Realtek Ethernet PHYs support"
