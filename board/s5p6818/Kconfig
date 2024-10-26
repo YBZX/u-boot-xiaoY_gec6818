@@ -26,6 +26,11 @@ config TARGET_NANOPI3
 	help
 	  Support for FriendlyElec boards based on S5P6818.
 
+config TARGET_GEC6818
+	bool "GEC6818"
+	help
+	  Support for gec6818 boards based on S5P6818 ported by xiaoY.
+
 endchoice
 
 config SYS_VENDOR
@@ -43,3 +48,4 @@ source "board/s5p6818/avn_ref/Kconfig"
 source "board/s5p6818/artik710_raptor/Kconfig"
 source "board/s5p6818/kick_st/Kconfig"
 source "board/s5p6818/nanopi3/Kconfig"
+source "board/s5p6818/gec6818/Kconfig"
