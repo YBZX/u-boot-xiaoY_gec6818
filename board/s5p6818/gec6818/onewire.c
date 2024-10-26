@@ -53,6 +53,7 @@ static struct udevice *i2c_dev;
 #endif
 
 /* debug */
+//xiaoY 控制打开onewire相关打印
 #if (0)
 #define DBGOUT(msg...)	do { printf("onewire: " msg); } while (0)
 #else

@@ -178,6 +178,34 @@ static struct nxp_lcd wvga_s70 = {
 	.gpio_init = s70_gpio_init,
 };
 
+
+static struct nxp_lcd wvga_n92 = {
+	.width = 800,
+	.height = 480,
+	.p_width = 155,
+	.p_height = 93,
+	.bpp = 24,
+	.freq = 61,
+
+	.timing = {
+		.h_fp = 48,
+		.h_bp = 36,
+		.h_sw = 10,
+		.v_fp = 22,
+		.v_fpe = 1,
+		.v_bp = 15,
+		.v_bpe = 1,
+		.v_sw = 8,
+	},
+	.polarity = {
+		.rise_vclk = 0,
+		.inv_hsync = 1,
+		.inv_vsync = 1,
+		.inv_vden = 0,
+	},
+	.gpio_init = s70_gpio_init,
+};
+
 static struct nxp_lcd wvga_s702 = {
 	.width = 800,
 	.height = 480,
@@ -704,37 +732,38 @@ static struct {
 	int ctp;
 	enum lcd_format fmt;
 } bd_lcd_config[] = {
-	{  25, "HD101",	&wxga_hd101,   0, 1, LCD_RGB  },
-	{  32, "HD101B",&wxga_hd101,   0, 1, LCD_RGB  },
-	{  18, "HD700",	&wxga_hd700, 213, 1, LCD_RGB  },
-	{  30, "HD702",	&wxga_hd700, 213, 1, LCD_RGB  },
-	{  34, "HD702",	&wxga_hd700, 213, 1, LCD_VESA },
-	{  33, "H70",	&wxga_hd700, 213, 0, LCD_VESA },
-	{  38, "HD900",	&wxga_hd900, 176, 1, LCD_VESA },
-	{  39, "K101",	&wxga_hd101,   0, 1, LCD_VESA },
-	{   3, "S70",	&wvga_s70,   128, 1, LCD_RGB  },
-	{  36, "S701",	&wvga_s70,   128, 1, LCD_RGB  },
-	{  24, "S702",	&wvga_s702,  128, 3, LCD_RGB  },
-	{  26, "S70D",	&wvga_s70d,  128, 0, LCD_RGB  },
-	{  14, "H43",	&hvga_h43,     0, 0, LCD_RGB  },
-	{  19, "P43",	&hvga_p43,     0, 0, LCD_RGB  },
-	{   8, "W35",	&qvga_w35,     0, 0, LCD_RGB  },
-	{  28, "X710",	&wsvga_x710,   0, 1, LCD_RGB  },
-	{  31, "S430",	&wvga_s430,  180, 1, LCD_RGB  },
-	{  41, "S430B",	&wvga_s430b, 180, 1, LCD_RGB  },
-	{  40, "W500",	&wvga_w500,  180, 1, LCD_RGB  },
-	{   4, "W50",	&wvga_w50,     0, 0, LCD_RGB  },
-	{ 100, "YZ43",	&wvga_yz43,  180, 1, LCD_RGB  },
-	{  -1, "U101A",	&wxga_hd101,   0, 1, LCD_VESA },
-
-	/* TODO: Testing */
-	{  15, "W101",	&wsvga_w101,   0, 1, LCD_RGB  },
-	{   5, "L80",	&vga_l80,      0, 1, LCD_RGB  },
-	{  -1, "A97",	&xga_a97,      0, 0, LCD_RGB  },
-	{  -1, "LQ150",	&xga_lq150,    0, 1, LCD_RGB  },
-	{  -1, "BP101",	&wxga_bp101,   0, 1, LCD_RGB  },
-	{ 128, "HDMI",	&hdmi_def,     0, 0, LCD_HDMI },	/* Pls keep it at last */
-};
+	{   1, "AT070TN92",	&wvga_n92,   128, 1, LCD_RGB  },
+	{  25, "HD101",		&wxga_hd101,   0, 1, LCD_RGB  },
+	{  32, "HD101B",	&wxga_hd101,   0, 1, LCD_RGB  },
+	{  18, "HD700",		&wxga_hd700, 213, 1, LCD_RGB  },
+	{  30, "HD702",		&wxga_hd700, 213, 1, LCD_RGB  },
+	{  34, "HD702",		&wxga_hd700, 213, 1, LCD_VESA },
+	{  33, "H70",		&wxga_hd700, 213, 0, LCD_VESA },
+	{  38, "HD900",		&wxga_hd900, 176, 1, LCD_VESA },
+	{  39, "K101",		&wxga_hd101,   0, 1, LCD_VESA },
+	{   3, "S70",		&wvga_s70,   128, 1, LCD_RGB  },
+	{  36, "S701",		&wvga_s70,   128, 1, LCD_RGB  },
+	{  24, "S702",		&wvga_s702,  128, 3, LCD_RGB  },
+	{  26, "S70D",		&wvga_s70d,  128, 0, LCD_RGB  },
+	{  14, "H43",		&hvga_h43,     0, 0, LCD_RGB  },
+	{  19, "P43",		&hvga_p43,     0, 0, LCD_RGB  },
+	{   8, "W35",		&qvga_w35,     0, 0, LCD_RGB  },
+	{  28, "X710",		&wsvga_x710,   0, 1, LCD_RGB  },
+	{  31, "S430",		&wvga_s430,  180, 1, LCD_RGB  },
+	{  41, "S430B",		&wvga_s430b, 180, 1, LCD_RGB  },
+	{  40, "W500",		&wvga_w500,  180, 1, LCD_RGB  },
+	{   4, "W50",		&wvga_w50,     0, 0, LCD_RGB  },
+	{ 100, "YZ43",		&wvga_yz43,  180, 1, LCD_RGB  },
+	{  -1, "U101A",		&wxga_hd101,   0, 1, LCD_VESA },
+	
+	/* TODO: Testing	 */
+	{  15, "W101",		&wsvga_w101,   0, 1, LCD_RGB  },
+	{   5, "L80",		&vga_l80,      0, 1, LCD_RGB  },
+	{  -1, "A97",		&xga_a97,      0, 0, LCD_RGB  },
+	{  -1, "LQ150",		&xga_lq150,    0, 1, LCD_RGB  },
+	{  -1, "BP101",		&wxga_bp101,   0, 1, LCD_RGB  },
+	{ 128, "HDMI",		&hdmi_def,     0, 0, LCD_HDMI },	/* Pls keep it at last */
+};	
 
 static int lcd_idx = 0;
 

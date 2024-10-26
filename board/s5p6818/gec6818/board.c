@@ -256,10 +256,14 @@ static void bd_lcd_init(void)
 	int id;
 	int ret;
 
-	id = onewire_get_lcd_id();
+	//xiaoY
+	// id = onewire_get_lcd_id();
 	/* -1: onwire probe failed
 	 *  0: bad
 	 * >0: identified */
+	//xiaoY 基于S70屏幕，新建AT070TN92屏幕，分辨率都为800x480，由于gec6818板子没有onewire，所以这里写死使用id为1的屏幕，即AT070TN92屏幕
+	//xiaoY temp 由于改为1使用AT070TN92屏幕，测试工作不正常，临时改回3，使用S70屏幕
+	id = 3;
 
 	ret = bd_setup_lcd_by_id(id);
 	if (id <= 0 || ret != id) {
@@ -338,7 +342,9 @@ static void set_board_rev(void)
 {
 	char info[64] = {0, };
 
-	snprintf(info, ARRAY_SIZE(info), "%02x", get_board_rev());
+	// snprintf(info, ARRAY_SIZE(info), "%02x", get_board_rev());
+	//xiaoY 固定板子版本为00
+	snprintf(info, ARRAY_SIZE(info), "%02x", 0);
 	setenv("board_rev", info);
 }
 #endif
@@ -347,8 +353,12 @@ static void set_dtb_name(void)
 {
 	char info[64] = {0, };
 
-	snprintf(info, ARRAY_SIZE(info),
-			"s5p6818-nanopi3-rev%02x.dtb", get_board_rev());
+	// snprintf(info, ARRAY_SIZE(info),
+	// 		"s5p6818-nanopi3-rev%02x.dtb", get_board_rev());
+	//xiaoY 固定板子版本为00
+	// snprintf(info, ARRAY_SIZE(info),
+	// 	"s5p6818-nanopi3-rev%02x.dtb", 0);
+	sprintf(info,"s5p6818-gec6818.dtb");
 	setenv("dtb_name", info);
 }
 
